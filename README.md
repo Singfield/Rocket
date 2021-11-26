@@ -1,5 +1,6 @@
 # Go GRPC Service
 
+__________________
 
 ## structure
 
@@ -19,4 +20,8 @@ rocket ==> package for the service
 
 transport ==> package to define the transport layer, here the grpc
 
-=========================
+_______________________
+
+```
+docker run --name rocket-inventory-db -e POSTGRES_PASSWORD=postgres -p 5432:5342 -d postgres
+```
