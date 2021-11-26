@@ -9,6 +9,7 @@ func Run() error {
 }
 
 func main() {
+
 	if err := Run(); err != nil {
 		log.Fatal(err)
 	}

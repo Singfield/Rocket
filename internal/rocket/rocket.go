@@ -1,3 +1,5 @@
+//go:generate mockgen -destination=rocket_mocks_test.go -package=rocket github.com/singfield/rocket/internal/rocket Store
+
 package rocket
 
 import "context"
@@ -5,9 +7,9 @@ import "context"
 // Rocket --should define the definition of our
 // Rocket
 type Rocket struct {
-	ID string
-	Name string
-	Type string
+	ID      string
+	Name    string
+	Type    string
 	Flights int
 }
 
@@ -26,7 +28,7 @@ type Service struct {
 }
 
 // New --returns a new instant of our rocket service
-func New(store Store) Service{
+func New(store Store) Service {
 	return Service{
 		Store: store,
 	}
@@ -42,7 +44,7 @@ func (s Service) GetRocketByID(ctx context.Context, id string) (Rocket, error) {
 }
 
 // AddRocket - Adds a rocket to our store
-func (s Service) AddRocket(rkt Rocket) (Rocket, error) {
+func (s Service) InsertRocket(ctx context.Context, rkt Rocket) (Rocket, error) {
 	rkt, err := s.Store.InsertRocket(rkt)
 	if err != nil {
 		return Rocket{}, err
