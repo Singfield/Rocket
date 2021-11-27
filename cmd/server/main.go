@@ -10,17 +10,22 @@ import (
 func Run() error {
 	// responsible for initializing and starting
 	// our gRpc server
-
+	log.Println("Starting up Rocket gRPC Service")
+	
 	rocketStore, err := db.New()
 	if err != nil {
 		return err
 	}
+
 	err = rocketStore.Migrate()
-	if err !=nil {
+	if err != nil {
 		log.Println("Failed to run migration")
 		return err
 	}
-	rocket.New(rocketStore)
+
+	_=rocket.New(rocketStore)
+
+
 
 	return nil
 }

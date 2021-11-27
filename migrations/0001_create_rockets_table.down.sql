@@ -1,3 +1,1 @@
-DROP TABLE IF EXISTS rockets(
-    
-);
+DROP TABLE IF EXISTS rockets();
