@@ -1,5 +1,15 @@
 # Go GRPC Service
 
+________________
+
+## Run the project localy
+
+```
+go mod vendor
+
+docker-compose up --build
+
+```
 __________________
 
 ## structure
@@ -22,6 +32,8 @@ transport ==> package to define the transport layer, here the grpc
 
 _______________________
 
+## Help commandes (docker)
 ```
 docker run --name rocket-inventory-db -e POSTGRES_PASSWORD=postgres -p 5432:5342 -d postgres
 ```
+
